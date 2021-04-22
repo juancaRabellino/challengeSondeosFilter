@@ -19,18 +19,24 @@ const filter = function (field, operator, value) {
         {id: 16, product: "Computer V", price: 868, inStock: true},
     ]
 
-    /* VALID OPERATORS */
     const EQUAL = 'EQUAL'
     const CONTAINS = 'CONTAINS'
     const GREATER_THAN = 'GREATER_THAN'
     const LESS_THAN = 'LESS_THAN'
 
-
-    /* YOUR CODE HERE */
-
-
-
-
+    if (operator === EQUAL) {
+      let resultEquals = items.filter(item => item[field] == value)
+      return resultEquals
+    } else if (operator === CONTAINS) {
+      let resultContains = items.filter(item => item[field].includes(value) && item)
+      return resultContains
+    } else if (operator === GREATER_THAN) {
+      let resultGreater = items.filter(item => item[field] > value)
+      return resultGreater
+    } else if (operator === LESS_THAN) {
+      let resultLess = items.filter(item => item[field] < value)
+      return resultLess
+    }
 }
 
 module.exports = filter
